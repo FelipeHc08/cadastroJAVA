@@ -1,0 +1,63 @@
+package maincadastro;
+
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author felipe
+ */
+public class MainCadastro {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+ 
+        //exige o nome
+        String nome = JOptionPane.showInputDialog(null, "Informe seu nome: ");
+        
+        
+        String dataNascimento = "";
+        
+        //exige data de nascimento, validando
+        while (!dataNascimento.matches("\\d{2}/\\d{2}/\\d{4}")) {
+            dataNascimento = JOptionPane.showInputDialog("Digite a sua data de nascimento (formato: dd/mm/aaaa):");
+            if (!dataNascimento.matches("\\d{2}/\\d{2}/\\d{4}")) {
+                JOptionPane.showMessageDialog(null, "Data de nascimento inválida. Digite novamente.");
+            }
+        }
+        
+        //exige CPF, validando
+        String cpf = "";
+        while (!cpf.matches("\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}")) {
+            cpf = JOptionPane.showInputDialog("Digite o seu CPF (formato: xxx.xxx.xxx-xx):");
+            if (!cpf.matches("\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}")) {
+                JOptionPane.showMessageDialog(null, "CPF inválido. Digite novamente.");
+            }
+        }
+        
+        //exige telefone, validando
+        String telefone = "";
+        while (!telefone.matches("\\(\\d{2}\\)\\s\\d{4,5}\\-\\d{4}")) {
+            telefone = JOptionPane.showInputDialog("Digite o seu telefone (formato: (xx) xxxx-xxxx ou (xx) xxxxx-xxxx):");
+            if (!telefone.matches("\\(\\d{2}\\)\\s\\d{4,5}\\-\\d{4}")) {
+                JOptionPane.showMessageDialog(null, "Telefone inválido. Digite novamente.");
+            }
+       }
+        
+        
+     //exige o email, nesse caso não consegui realizar validação...
+        String email = JOptionPane.showInputDialog("Digite o seu e-mail:");
+           
+    // exibe o cadastro completo na tela          
+        JOptionPane.showMessageDialog(null,"CADASTRO\n\n" + 
+                "Nome: " +nome 
+                + "\n\nCPF: " +cpf 
+                + "\n\nTelefone: " + telefone
+                + "\n\nE-mail: " + email);
+               
+    }
+    
+    }
